@@ -1,24 +1,24 @@
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/taboo.vim"]
-	path = bundle/taboo.vim
+[submodule "vim/bundle/taboo.vim"]
+	path = vim/bundle/taboo.vim
 	url = https://github.com/gcmt/taboo.vim.git
-[submodule "bundle/vim-easymotion"]
-	path = bundle/vim-easymotion
+[submodule "vim/bundle/vim-easymotion"]
+	path = vim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundle/Vundle.vim"]
-	path = bundle/Vundle.vim
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/auto-pairs"]
-	path = bundle/auto-pairs
+[submodule "vim/bundle/auto-pairs"]
+	path = vim/bundle/auto-pairs
 	url = git://github.com/jiangmiao/auto-pairs.git
-[submodule "bundle/xmledit"]
-	path = bundle/xmledit
+[submodule "vim/bundle/xmledit"]
+	path = vim/bundle/xmledit
 	url = https://github.com/sukima/xmledit.git
