@@ -4,7 +4,7 @@ set backspace=indent,eol,start     " Let backspace work over anything.
 set hidden                         " Allow hidden, unsaved buffers
 set history=1024
 set laststatus=2                   " Always show statusline
-set mouse=a                        " Use mouse support in XTerm/iTerm.
+" set mouse=a                        " Use mouse support in XTerm/iTerm.
 set nocompatible                   " be iMproved
 set notimeout                      " No command timeout
 set number                         " Line numbers
@@ -16,6 +16,7 @@ set splitright                     " Add new windows towards the right
 set splitbelow                     " ... and bottom
 set wildmode=list:longest          " Bash-like tab completion
 set term=screen-256color           " so the background color isn't fucked
+set wildmenu                       " autocomplete after tab
 
 " Show 100 column limit as colored line
 if exists('+colorcolumn')
@@ -45,8 +46,16 @@ set incsearch                      " Incremental search
 set hlsearch                       " search with highlights by default
 set ignorecase
 set smartcase
-" Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""
+
+
+" Highlight cursorline
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+
+
+" Highlights extrawhitespace
+hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
+au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
 
 
 " Saving

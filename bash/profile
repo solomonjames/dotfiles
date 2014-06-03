@@ -30,8 +30,7 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
-[ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
-alias lh='ls -lh'
+. "aliases"
 
 # Helper functions
 [ -r "${HOME}/.bash/functions.sh" ] && . "${HOME}/.bash/functions.sh"
