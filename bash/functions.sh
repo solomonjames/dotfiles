@@ -16,12 +16,14 @@ jpull() {
         cd "${HOME}/.dotfiles"
         ${SGIT} reset --hard HEAD >/dev/null 2>&1
         ${SGIT} pull
-        ${SGIT} submodule --init --recursive update
+        ${SGIT} submodule init
+        ${SGIT} submodule update
     else
         cd "${HOME}"
         ${SGIT} clone --depth 1 ${REPO} .dotfiles
         cd "${HOME}/.dotfiles"
-        ${SGIT} submodule --init --recursive update
+        ${SGIT} submodule init
+        ${SGIT} submodule update
     fi
     cd "${HOME}/.dotfiles" &&
     for f in * ; do
