@@ -30,7 +30,7 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
-. "aliases"
+. "${HOME}/.dotfiles/bash/aliases"
 
 # Helper functions
 [ -r "${HOME}/.bash/functions.sh" ] && . "${HOME}/.bash/functions.sh"
