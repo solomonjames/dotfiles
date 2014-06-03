@@ -26,18 +26,26 @@ jpull() {
         ${SGIT} submodule update
     fi
     cd "${HOME}/.dotfiles" &&
-    for f in * ; do
-        # A quick check on the files can prevent unnecessary forks
-        lf="${HOME}/.${f%/*}"
-        if [ ! "${f}" -ef "${lf}" ] ; then
-            rm -rf "${lf}"
-            ln -s ".dotfiles/${f}" "${lf}"
-        fi
-    done
+
+    symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
+    symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
+    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
+    symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
+
     cd "${HOME}"
+
     # Delete any broken symlinks in the homedir
     find -L . -maxdepth 1 -type l -exec rm -- {} +
+
     . "${HOME}/.profile"
+}
+
+symlink() {
+    if [ -L "$2" ]; then
+	rm $2
+    fi
+
+    ln -s $1 $2
 }
 
 # Simple wrapper for ssh which makes jpull() available in the remote session

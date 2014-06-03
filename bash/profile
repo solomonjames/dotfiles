@@ -34,7 +34,7 @@ fi
 alias lh='ls -lh'
 
 # Helper functions
-[ -r "${HOME}/.functions.sh" ] && . "${HOME}/.functions.sh"
+[ -r "${HOME}/.bash/functions.sh" ] && . "${HOME}/.bash/functions.sh"
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
