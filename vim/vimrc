@@ -9,7 +9,7 @@
 """"""""""""""""""""""""""""""""""
 " Vundle and bundles configuration
 """"""""""""""""""""""""""""""""""
-source bundles.vim
+" source bundles.vim
 
 """""""""""""""""""""""""""""
 " Source initialization files
