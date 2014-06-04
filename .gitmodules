@@ -22,3 +22,6 @@
 [submodule "vim/bundle/xmledit"]
     path = vim/bundle/xmledit
     url = https://github.com/sukima/xmledit.git
+[submodule "vim/bundle/vim-pathogen"]
+	path = vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
