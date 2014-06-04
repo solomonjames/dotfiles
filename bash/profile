@@ -1,3 +1,6 @@
+# Autoload includes
+. $(find ~/.dotfiles/bash/includes/ -name *.sh)
+
 hn=$(hostname | sed s/.spotify.net//g)
 R="\033[00m"
 M="\033[32m"
@@ -31,9 +34,6 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
 fi
 
 . "${HOME}/.dotfiles/bash/aliases"
-
-# Helper functions
-[ -r "${HOME}/.bash/functions.sh" ] && . "${HOME}/.bash/functions.sh"
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
