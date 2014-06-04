@@ -1,3 +1,13 @@
+# Simple helper to remove and make symlinks
+symlink() {
+    if [ -L "$2" ]; then
+        rm $2
+    fi
+
+    ln -s $1 $2
+}
+
+
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
 jpull() {
@@ -25,7 +35,6 @@ jpull() {
         ${SGIT} submodule init
         ${SGIT} submodule update
     fi
-    cd "${HOME}/.dotfiles" &&
 
     symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
     symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
@@ -38,14 +47,6 @@ jpull() {
     find -L . -maxdepth 1 -type l -exec rm -- {} +
 
     . "${HOME}/.profile"
-}
-
-symlink() {
-    if [ -L "$2" ]; then
-	rm $2
-    fi
-
-    ln -s $1 $2
 }
 
 # Simple wrapper for ssh which makes jpull() available in the remote session
@@ -63,5 +64,5 @@ jssh() {
       HOME=\"\$HOME\" TERM=\"\$TERM\" \
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
-}    
+}
 alias ssj="jssh"
