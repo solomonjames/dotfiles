@@ -1,9 +1,20 @@
 # Simple helper to remove and make symlinks
 symlink() {
-    if [ -L "$2" ]; then
-        rm $2
+    # If this isnt a symlink
+    if [ ! -L "$2" ]; then
+        # Backup the file
+        mv "$2" "$2.backup"
+
+        # Now remove it, dirs too
+        rm -rf "$2"
     fi
 
+    # If the target is already a symlink
+    if [ -L "$2" ]; then
+        rm "$2"
+    fi
+
+    # Create that symlink!
     ln -s $1 $2
 }
 
