@@ -3,15 +3,15 @@ symlink() {
     # If this isnt a symlink
     if [ ! -L "$2" ]; then
         # Backup the file
-        mv "$2" "$2.backup"
+        mv "$2" "$2.backup" >/dev/null 2>&1
 
         # Now remove it, dirs too
-        rm -rf "$2"
+        rm -rf "$2" >/dev/null 2>&1
     fi
 
     # If the target is already a symlink
     if [ -L "$2" ]; then
-        rm "$2"
+        rm "$2" >/dev/null 2>&1
     fi
 
     # Create that symlink!
@@ -23,7 +23,7 @@ symlink() {
 # Create symlinks in the $HOME directory to elements in the repo
 jpull() {
     local REPO='https://github.com/solomonjames/dotfiles'
-    local SGITURL="${REPO}/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
+    local SGITURL="https://github.com/jhuntwork/dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
     local SGIT=git
 
@@ -64,6 +64,7 @@ jpull() {
     # Delete any broken symlinks in the homedir
     find -L . -maxdepth 1 -type l -exec rm -- {} +
 
+    # Source the profile to get things going
     . "${HOME}/.profile"
 }
 
