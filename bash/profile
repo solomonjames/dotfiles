@@ -1,4 +1,4 @@
-hn=$(hostname -s)
+hn=$(hostname | sed s/.spotify.net//g)
 R="\033[00m"
 M="\033[32m"
 P='$'

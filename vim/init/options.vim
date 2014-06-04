@@ -1,4 +1,5 @@
 " Look and feel
+let t_Co=256
 set background=dark
 set backspace=indent,eol,start     " Let backspace work over anything.
 set hidden                         " Allow hidden, unsaved buffers
@@ -17,11 +18,15 @@ set splitbelow                     " ... and bottom
 set wildmode=list:longest          " Bash-like tab completion
 set term=screen-256color           " so the background color isn't fucked
 set wildmenu                       " autocomplete after tab
+set paste                          " Make a ctrl-v work nicely
+
+syntax on
 
 " Show 100 column limit as colored line
 if exists('+colorcolumn')
   set colorcolumn=100
 endif
+
 
 " Disable arrow keys
 nnoremap <left> <nop>
