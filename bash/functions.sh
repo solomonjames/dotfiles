@@ -15,13 +15,19 @@ jpull() {
     local SGITURL="${REPO}/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
     local SGIT=git
+
+    # If not installed globally already
     if ! ${SGIT} --version >/dev/null 2>&1 ; then
         SGIT="${SGITPATH}/git --exec-path=${SGITPATH}/git-core"
+
+        # If the static version isnt available
         if ! ${SGIT} --version >/dev/null 2>&1 ; then
             cd ${HOME}
             curl -sL ${SGITURL} | tar -xJf -
         fi
     fi
+
+    # If the dotfiles dir already exists
     if [ -d "${HOME}/.dotfiles" ] ; then
         cd "${HOME}/.dotfiles"
         ${SGIT} reset --hard HEAD >/dev/null 2>&1
@@ -39,6 +45,7 @@ jpull() {
     symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
     symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
     symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
+    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
     symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
 
     cd "${HOME}"
@@ -53,8 +60,10 @@ jpull() {
 # regardless of whether .dotfiles is present remotely or not
 jssh() {
     local func=$(typeset -f jpull)
+    local func2=$(typeset -f symlink)
     ssh -A -t "$@" \
-    "${func} ;
+    "${func2} ;
+    ${func} ;
     [ -r /etc/motd ] && cat /etc/motd ;
     [ -r \"\$HOME/.profile\" ] && . \"\$HOME/.profile\" ;
     type jssh >/dev/null 2>&1 || jpull ;
