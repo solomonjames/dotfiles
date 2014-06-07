@@ -3,3 +3,6 @@
 [ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
 alias ll='ls -lh'
 alias la='ls -lha'
+
+
+alias tmux-attach="ssh-save ; tmux attach ; ssh-restore"

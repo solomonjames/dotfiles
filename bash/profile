@@ -1,5 +1,5 @@
 # Autoload includes
-. $(find ~/.dotfiles/bash/includes/ -name *.sh)
+. $(find "${HOME}/.dotfiles/bash/includes" -name *.sh)
 
 hn=$(hostname | sed s/.spotify.net//g)
 R="\033[00m"
