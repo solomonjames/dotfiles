@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Simple helper to remove and make symlinks
 function h.symlink() {
     # If this isnt a symlink
