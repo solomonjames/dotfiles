@@ -1,5 +1,5 @@
 # Simple helper to remove and make symlinks
-symlink() {
+function h.symlink() {
     # If this isnt a symlink
     if [ ! -L "$2" ]; then
         # Backup the file
@@ -53,11 +53,11 @@ jpull() {
         ${SGIT} submodule update
     fi
 
-    symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
-    symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
-    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
-    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
-    symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
+    h.symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
+    h.symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
+    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
+    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
+    h.symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
 
     cd "${HOME}"
 
