@@ -3,7 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Setting Explicit source to show it as a dependency
-. "${DIR}/text.sh"
+. "${DIR}/text.bash"
 
 BLACK=$(tput setaf 0)
 RED=$(tput setaf 1)
