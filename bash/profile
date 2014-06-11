@@ -15,6 +15,8 @@ set_ps1() {
     printf "${hn} ${M}|\033[36m ${PWD}${R}\n${P} "
 }
 
+export PATH="${PATH}:${HOME}/.rbenv/bin"
+
 PS1='$(set_ps1)'
 PS2=" > "
 EDITOR=vim
@@ -37,6 +39,10 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
 fi
 
 . "${HOME}/.dotfiles/bash/aliases"
+
+if type -p rbenv >/dev/null 2>&1 ; then
+    eval "$(rbenv init -)"
+fi
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
