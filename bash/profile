@@ -12,7 +12,8 @@ P='$'
 [ "${USER}" = "root" ] && M="\033[31m" && P='#'
 
 set_ps1() {
-    printf "${hn} ${M}|\033[36m ${PWD}${R}\n${P} "
+    GIT_BRANCH=$([ -r "$PWD/.git" ] && printf " | `git branch --abbr`")
+    printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
 }
 
 export PATH="${PATH}:${HOME}/.rbenv/bin"
