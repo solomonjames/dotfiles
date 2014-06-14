@@ -16,6 +16,12 @@
 [color]
     ui = true
 
+[color "status"]
+    changed = "blue normal bold"
+    header  = "white normal dim"
+    untracked = "magenta"
+    branch = "cyan"
+
 [commit]
     template = ~/.dotfiles/git/message_template
 
