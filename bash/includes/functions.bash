@@ -59,6 +59,7 @@ jpull() {
     h.symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
     h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
     h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
+    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
     h.symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
     h.symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
     h.symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
