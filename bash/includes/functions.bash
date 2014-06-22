@@ -64,6 +64,7 @@ jpull() {
     h.symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
     h.symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
     h.symlink "${HOME}/.dotfiles/tmux.conf" "${HOME}/.tmux.conf"
+    h.symlink "${HOME}/.dotfiles/fzf" "${HOME}/.fzf"
 
     cd "${HOME}"
 
