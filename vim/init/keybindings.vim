@@ -15,7 +15,7 @@ cmap <C-A> <C-B>
 
 
 " Toggle Nerd Tree
-nnoremap \ :NERDTreeToggle<Cr><Cr>
+nnoremap \ :NERDTreeTabsToggle <Cr>
 
 
 " Window navigation
