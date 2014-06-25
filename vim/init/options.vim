@@ -21,6 +21,8 @@ set wildmenu                       " autocomplete after tab
 set paste                          " Make a ctrl-v work nicely
 set rtp+=~/.fzf
 
+colorscheme seoul256
+
 syntax on
 
 " Show 100 column limit as colored line
