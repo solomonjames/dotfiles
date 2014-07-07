@@ -1,9 +1,3 @@
-# Autoload includes
-for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -name *.bash)
-do
-    . "${includeFile}"
-done
-
 hn=$(hostname | sed s/.spotify.net//g)
 R="\033[00m"
 M="\033[32m"
@@ -43,8 +37,6 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     HISTCONTROL=ignoredups:ignorespace
     export HISTFILESIZE HISTCONTROL
 fi
-
-. "${HOME}/.dotfiles/bash/aliases"
 
 if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"

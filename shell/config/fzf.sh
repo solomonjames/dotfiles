@@ -32,7 +32,7 @@ __fsel_tmux() {
   else
     height="-l $height"
   fi
-  tmux split-window $height "bash -c 'source ~/.dotfiles/bash/includes/fzf.bash; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
+  tmux split-window $height "bash -c 'source ~/.dotfiles/shell/config/fzf.sh; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
 }
 
 __fcd() {
