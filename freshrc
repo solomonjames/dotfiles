@@ -1,3 +1,5 @@
+# vim: set ft=sh:
+
 # freshshell.com
 #
 # Examples:
@@ -10,4 +12,13 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
+fresh vim/vimrc --file
+
+fresh vim --file=~/.vim
+
 fresh config/\* --file
+
+# Add fresh auto-completion
+fresh freshshell/fresh contrib/completion/fresh-completion.bash
+
+fresh fzf --file=~/.fzf
