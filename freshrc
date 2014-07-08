@@ -30,6 +30,8 @@ fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/patho
 # Vim: Vendors
 fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ --ref=35028be
 
+fresh fzf --file=~/.fzf/
+
 fresh config/\* --file
 
 fresh shell/aliases/\*
@@ -39,5 +41,3 @@ fresh shell/\*
 
 # Add fresh auto-completion
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
-
-fresh fzf --file=~/.fzf/

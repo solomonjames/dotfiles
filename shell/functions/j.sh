@@ -29,7 +29,7 @@ jinstall() {
 jssh() {
     local func=$(typeset -f jinstall)
     ssh -A -t "$@" \
-    ${func} ;
+    "${func} ;
     [ -r /etc/motd ] && cat /etc/motd ;
     [ -r \"\$HOME/.bash_profile\" ] && . \"\$HOME/.bash_profile\" ;
     type jssh >/dev/null 2>&1 || jinstall ;
