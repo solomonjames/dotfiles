@@ -1,5 +1,5 @@
 # Simple helper to remove and make symlinks
-function h.symlink() {
+function symlink() {
     # If this isnt a symlink
     if [ ! -L "$2" ]; then
         # Backup the file

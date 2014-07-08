@@ -1,7 +1,6 @@
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
-jpull() {
-    local REPO='https://github.com/solomonjames/dotfiles'
+jinstall() {
     local SGITURL="https://github.com/jhuntwork/dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
     local SGIT=git
@@ -17,52 +16,23 @@ jpull() {
         fi
     fi
 
-    # If the dotfiles dir already exists
-    if [ -d "${HOME}/.dotfiles" ] ; then
-        cd "${HOME}/.dotfiles"
-        ${SGIT} reset --hard HEAD >/dev/null 2>&1
-        ${SGIT} pull
-        ${SGIT} submodule init
-        ${SGIT} submodule update
+    # If fresh seems to be already installed
+    if [ -r "${HOME}/.freshrc" ] ; then
+        fresh update
     else
-        cd "${HOME}"
-        ${SGIT} clone --depth 1 ${REPO} .dotfiles
-        cd "${HOME}/.dotfiles"
-        ${SGIT} submodule init
-        ${SGIT} submodule update
+        FRESH_LOCAL_SOURCE=solomonjames/dotfiles bash <(curl -sL get.freshshell.com)
     fi
-
-    h.symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
-    h.symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
-    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
-    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
-    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
-    h.symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
-    h.symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-    h.symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
-    h.symlink "${HOME}/.dotfiles/tmux.conf" "${HOME}/.tmux.conf"
-    h.symlink "${HOME}/.dotfiles/fzf" "${HOME}/.fzf"
-
-    cd "${HOME}"
-
-    # Delete any broken symlinks in the homedir
-    find -L . -maxdepth 1 -type l -exec rm -- {} +
-
-    # Source the profile to get things going
-    . "${HOME}/.profile"
 }
 
-# Simple wrapper for ssh which makes jpull() available in the remote session
+# Simple wrapper for ssh which makes jinstall() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
 jssh() {
-    local func=$(typeset -f jpull)
-    local func2=$(typeset -f symlink)
+    local func=$(typeset -f jinstall)
     ssh -A -t "$@" \
-    "${func2} ;
     ${func} ;
     [ -r /etc/motd ] && cat /etc/motd ;
-    [ -r \"\$HOME/.profile\" ] && . \"\$HOME/.profile\" ;
-    type jssh >/dev/null 2>&1 || jpull ;
+    [ -r \"\$HOME/.bash_profile\" ] && . \"\$HOME/.bash_profile\" ;
+    type jssh >/dev/null 2>&1 || jinstall ;
     exec env -i SSH_AUTH_SOCK=\"\$SSH_AUTH_SOCK\" \
       SSH_CONNECTION=\"\$SSH_CONNECTION\" \
       SSH_CLIENT=\"\$SSH_CLIENT\" SSH_TTY=\"\$SSH_TTY\" \
