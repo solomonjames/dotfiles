@@ -17,12 +17,18 @@ fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
 
 fresh vim/vimrc --file
 
-# fresh vim --file=~/.vim/
-fresh vim/bundle --file=~/.vim/bundle/
+# Load all the vimb bundles from my repo
+for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
+    fresh vim/bundle/$vimBundle --file=~/.vim/bundle/$vimBundle/
+done
+
 fresh vim/colors --file=~/.vim/colors/
 fresh vim/init --file=~/.vim/init/
 
 fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/pathogen.vim
+
+# Vim: Vendors
+fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ --ref=35028be
 
 fresh config/\* --file
 
