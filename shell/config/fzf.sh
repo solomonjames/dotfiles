@@ -1,8 +1,12 @@
 # Setup fzf function
 # ------------------
 unalias fzf 2> /dev/null
+
 fzf() {
-  /usr/bin/ruby --disable-gems "${HOME}/.dotfiles/fzf/fzf" "$@"
+    local ruby_bin
+    ruby_bin=$(which ruby)
+
+   ${ruby_bin} --disable-gems "${HOME}/.dotfiles/fzf/fzf" "$@"
 }
 export -f fzf > /dev/null
 
