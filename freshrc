@@ -33,6 +33,9 @@ fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
 
 fresh fzf --file=~/.fzf/
 
+# General: Vendors
+fresh shell/bin/hub --bin
+
 fresh config/\* --file
 
 fresh shell/aliases/\*
