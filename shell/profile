@@ -15,7 +15,7 @@ set_ps1() {
     printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
 }
 
-export PATH="${PATH}:${HOME}/.rbenv/bin"
+
 
 PS1='$(set_ps1)'
 PS2=" > "
@@ -38,8 +38,14 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
+[ -r "${HOME}/.rbenv" ] && export PATH="${PATH}:${HOME}/.rbenv/bin"
 if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
+fi
+
+[ -r "${HOME}/.phpenv" ] && export PATH="$PATH:${HOME}/.phpenv/bin"
+if type -p phpenv >/dev/null 2>&1 ; then
+    eval "$(phpenv init -)"
 fi
 
 # Load a local profile

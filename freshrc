@@ -29,6 +29,7 @@ fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/patho
 
 # Vim: Vendors
 fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ --ref=35028be
+fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
 
 fresh fzf --file=~/.fzf/
 
