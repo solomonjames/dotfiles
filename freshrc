@@ -32,6 +32,9 @@ fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ 
 
 fresh fzf --file=~/.fzf/
 
+# General: Vendors
+fresh shell/bin/hub --bin
+
 fresh config/\* --file
 
 fresh shell/aliases/\*
