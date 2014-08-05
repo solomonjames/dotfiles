@@ -15,8 +15,10 @@ cmap <C-A> <C-B>
 
 
 " Toggle Nerd Tree
-nnoremap \ :NERDTreeTabsToggle <Cr>
+nnoremap \ :NERDTreeMirrorToggle <Cr>
 
+" Toggle Tagbar for outlines of a class
+nnoremap <Leader>/ :TagbarToggle <Cr>
 
 " Window navigation
 nmap <C-H> <C-W>h
