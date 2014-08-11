@@ -31,6 +31,7 @@ fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/patho
 fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ --ref=35028be
 fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
 fresh majutsushi/tagbar . --file=~/.vim/bundle/vim-tagbar/
+fresh scrooloose/nerdcommenter . --file=~/.vim/bundle/vim-nerdcommenter/
 
 fresh fzf --file=~/.fzf/
 
