@@ -47,3 +47,4 @@ fresh shell/\*
 
 # Add fresh auto-completion
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
+fresh nojhan/liquidprompt liquidprompt

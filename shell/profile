@@ -3,22 +3,6 @@ R="\033[00m"
 M="\033[32m"
 P='$'
 
-[ "${USER}" = "root" ] && M="\033[31m" && P='#'
-
-set_ps1() {
-    GIT_BRANCH=""
-    if [ -r "$PWD/.git" ] ; then
-        GIT_COLOR="$GREEN"
-        [ $(git status --porcelain | wc -l) -gt 0 ] && GIT_COLOR="$RED"
-        GIT_BRANCH=" $GIT_COLOR$(git branch --abbr | grep '*')$NORMAL"
-    fi
-    printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
-}
-
-
-
-PS1='$(set_ps1)'
-PS2=" > "
 EDITOR=vim
 TZ=America/New_York
 LANG=en_US.UTF-8

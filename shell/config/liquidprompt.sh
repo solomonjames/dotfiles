@@ -1,0 +1,1 @@
+export LP_ENABLE_TEMP=0
