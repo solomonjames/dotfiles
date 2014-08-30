@@ -22,6 +22,8 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
+[ -r "${HOME}/.composer/vendor/bin" ] && export PATH="${PATH}:${HOME}/.composer/vendor/bin"
+
 [ -r "${HOME}/.rbenv" ] && export PATH="${PATH}:${HOME}/.rbenv/bin"
 if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
