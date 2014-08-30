@@ -32,6 +32,7 @@ fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/
 fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
 fresh majutsushi/tagbar . --file=~/.vim/bundle/vim-tagbar/
 fresh scrooloose/nerdcommenter . --file=~/.vim/bundle/vim-nerdcommenter/
+fresh tpope/vim-obsession . --file=~/.vim/bundle/vim-obsession/
 
 # Tmux: Vendors
 fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
