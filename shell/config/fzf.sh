@@ -59,7 +59,7 @@ if [ -z "$(set -o | grep '^vi.*on')" ]; then
   fi
 
   # CTRL-R - Paste the selected command from history into the command line
-  bind '"\C-r": " \C-e\C-u$(HISTTIMEFORMAT= history | fzf +s +m -n..,1,2.. | sed \"s/ *[0-9]* *//\")\e\C-e\er"'
+  bind '"\C-r": " \C-e\C-u$(HISTTIMEFORMAT= history | fzf +s +m -n..,2,2.. | sed \"s/ *[0-9]* *//\")\e\C-e\er"'
 
   # ALT-C - cd into the selected directory
   bind '"\ec": " \C-e\C-u$(__fcd)\e\C-e\er\C-m"'

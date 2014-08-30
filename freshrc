@@ -17,7 +17,7 @@ fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
 
 fresh vim/vimrc --file
 
-# Load all the vimb bundles from my repo
+# Load all the vim bundles from my repo
 for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
     fresh vim/bundle/$vimBundle --file=~/.vim/bundle/$vimBundle/
 done
@@ -28,15 +28,18 @@ fresh vim/init --file=~/.vim/init/
 fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/pathogen.vim
 
 # Vim: Vendors
-fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/ --ref=35028be
+fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/
 fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
 fresh majutsushi/tagbar . --file=~/.vim/bundle/vim-tagbar/
 fresh scrooloose/nerdcommenter . --file=~/.vim/bundle/vim-nerdcommenter/
+fresh tpope/vim-obsession . --file=~/.vim/bundle/vim-obsession/
 
-fresh fzf --file=~/.fzf/
+# Tmux: Vendors
+fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
 
 # General: Vendors
 fresh shell/bin/hub --bin
+fresh fzf --file=~/.fzf/
 
 fresh config/\* --file
 
@@ -48,3 +51,7 @@ fresh shell/\*
 # Add fresh auto-completion
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
 fresh nojhan/liquidprompt liquidprompt
+
+fresh_after_build() {
+    chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
+}

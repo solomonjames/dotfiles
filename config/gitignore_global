@@ -43,3 +43,6 @@ Thumbs.db
 # Mac OSX generated files #
 ###########################
 xcuserdata
+
+# Vim
+Session.vim
