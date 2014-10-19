@@ -1,0 +1,4 @@
+set editing-mode vi
+set keymap vi-command
+
+menu-complete-display-prefix on

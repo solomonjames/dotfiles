@@ -37,9 +37,3 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""
 
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
-
-map <Leader>C :call fzf#run({
-\   'sink':       'colo',
-\   'options':    '+m',
-\   'tmux_width': 20,
-\ })<CR>

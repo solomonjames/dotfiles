@@ -19,7 +19,6 @@ set wildmode=list:longest          " Bash-like tab completion
 set term=screen-256color           " so the background color isn't fucked
 set wildmenu                       " autocomplete after tab
 set paste                          " Make a ctrl-v work nicely
-set rtp+=~/.fzf
 
 colorscheme seoul256
 
