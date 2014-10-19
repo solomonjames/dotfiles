@@ -39,6 +39,9 @@ fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
 
 # General: Vendors
 fresh shell/bin/hub --bin
+fresh shell/bin/fresh-setup --bin
+
+fresh icy/pacapt pacapt --bin
 
 fresh config/\* --file
 
@@ -54,3 +57,4 @@ fresh nojhan/liquidprompt liquidprompt
 fresh_after_build() {
     chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
 }
+fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
