@@ -34,5 +34,12 @@ if type -p phpenv >/dev/null 2>&1 ; then
     eval "$(phpenv init -)"
 fi
 
+# Setup your virtual environment
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
+  . /usr/local/bin/virtualenvwrapper_lazy.sh
+  workon spotify
+fi
+
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"

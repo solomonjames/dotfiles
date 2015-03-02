@@ -1,6 +1,17 @@
 FRESH_SETUP_PKGS=()
-FRESH_SETUP_PKGS[0]="vim"
-FRESH_SETUP_PKGS[1]="tmux"
-FRESH_SETUP_PKGS[2]="wget"
-FRESH_SETUP_PKGS[3]="tig"
-FRESH_SETUP_PKGS[4]="git-extras"
+FRESH_SETUP_PKGS+=("vim")
+FRESH_SETUP_PKGS+=("tmux")
+FRESH_SETUP_PKGS+=("wget")
+FRESH_SETUP_PKGS+=("tig")
+FRESH_SETUP_PKGS+=("git-extras")
+
+osname=`uname`
+
+case "$osname" in
+    Linux)
+        ;;
+
+    Darwin)
+        FRESH_SETUP_PKGS+=("caskroom/cask/brew-cask")
+        ;;
+esac
