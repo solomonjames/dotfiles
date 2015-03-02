@@ -15,7 +15,7 @@ fresh freshshell/fresh bin/fresh --bin
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bash_profile
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
 
-fresh spf13/spf13-vim . --file=~/.spf13-vim-3
+fresh spf13/spf13-vim . --file=~/.spf13-vim-3/
 
 fresh vim/vimrc.local --file
 
@@ -51,7 +51,7 @@ fresh_after_build() {
     chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
 
     # Bootstrap the vim setup
-    sh ~/.spf13-vim-3/3.0/bootstrap.sh
+    sh ~/.spf13-vim-3/bootstrap.sh
 }
 
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
