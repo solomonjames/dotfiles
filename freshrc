@@ -15,24 +15,17 @@ fresh freshshell/fresh bin/fresh --bin
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bash_profile
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
 
-fresh vim/vimrc --file
+fresh spf13/spf13-vim . --file=~/.spf13-vim-3
+
+fresh vim/vimrc.local --file
 
 # Load all the vim bundles from my repo
-for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
-    fresh vim/bundle/$vimBundle --file=~/.vim/bundle/$vimBundle/
-done
+#for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
+#    fresh vim/bundle/$vimBundle --file=~/.vim/bundle/$vimBundle/
+#done
 
-fresh vim/colors --file=~/.vim/colors/
-fresh vim/init --file=~/.vim/init/
-
-fresh vim/bundle/vim-pathogen/autoload/pathogen.vim --file=~/.vim/autoload/pathogen.vim
-
-# Vim: Vendors
-fresh terryma/vim-multiple-cursors . --file=~/.vim/bundle/vim-multiple-cursors/
-fresh tpope/vim-fugitive . --file=~/.vim/bundle/vim-fugitive/
-fresh majutsushi/tagbar . --file=~/.vim/bundle/vim-tagbar/
-fresh scrooloose/nerdcommenter . --file=~/.vim/bundle/vim-nerdcommenter/
-fresh tpope/vim-obsession . --file=~/.vim/bundle/vim-obsession/
+#fresh vim/colors --file=~/.vim/colors/
+#fresh vim/init --file=~/.vim/init/
 
 # Tmux: Vendors
 fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
@@ -56,5 +49,9 @@ fresh nojhan/liquidprompt liquidprompt
 
 fresh_after_build() {
     chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
+
+    # Bootstrap the vim setup
+    sh ~/.spf13-vim-3/3.0/bootstrap.sh
 }
+
 fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
