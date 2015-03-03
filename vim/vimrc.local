@@ -1,5 +1,6 @@
 " My Customizations for spf13/spf13-vim
 
+" spf13/PIV
 let g:DisableAutoPHPFolding=1
 
 " I dont prefer the mouse to work inside of vim
@@ -7,3 +8,6 @@ set mouse=""
 
 " I really dislike code folding
 set nofoldenable
+
+" Syntastic
+let g:syntastic_php_checkers = ['php']
