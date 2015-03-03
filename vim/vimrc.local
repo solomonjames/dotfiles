@@ -1,3 +1,9 @@
 " My Customizations for spf13/spf13-vim
 
 let g:DisableAutoPHPFolding=1
+
+" I dont prefer the mouse to work inside of vim
+set mouse=""
+
+" I really dislike code folding
+set nofoldenable
