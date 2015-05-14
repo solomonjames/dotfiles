@@ -1,3 +1,3 @@
 " This is used to pre-configure what bundles spf13 will install
 
-let g:spf13_bundle_groups=['general', 'writing', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'puppet',]
+let g:spf13_bundle_groups=['general', 'writing', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'puppet',]
