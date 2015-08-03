@@ -34,6 +34,10 @@ if type -p phpenv >/dev/null 2>&1 ; then
     eval "$(phpenv init -)"
 fi
 
+# Need to add some smarter logic here
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Setup your virtual environment
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
