@@ -36,7 +36,6 @@ fi
 
 # Need to add some smarter logic here
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 # Setup your virtual environment
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
