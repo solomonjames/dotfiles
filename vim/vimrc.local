@@ -11,3 +11,6 @@ set nofoldenable
 
 " Syntastic
 let g:syntastic_php_checkers = ['php']
+
+" for respecting .editorconfig files in projects
+Plugin 'editorconfig/editorconfig-vim'
