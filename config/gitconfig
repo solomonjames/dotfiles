@@ -13,6 +13,9 @@
 [branch]
     autosetuprebase = always
 
+[branch "master"]
+    rebase = true
+
 [color]
     ui = true
 
