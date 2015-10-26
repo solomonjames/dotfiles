@@ -36,7 +36,7 @@ fi
 
 # Need to add some smarter logic here
 [ -r "${HOME}/.nvm" ] && export NVM_DIR="${HOME}/.nvm"
-[ -r "${HOME}/.nvm" ] && . ~/.nvm/nvm.sh
+[ -r "${HOME}/.nvm" ] && . "${HOME}/.nvm/nvm.sh"
 
 # Setup your virtual environment
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
