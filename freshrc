@@ -18,7 +18,7 @@ fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
 # Ensure this is present
 mkdir -p ~/.vim/bundle
 
-fresh VundleVim/Vundle.vim . --file=~/.vim/bundle/Vundle.vim
+fresh VundleVim/Vundle.vim . --file=~/.vim/bundle/Vundle.vim/
 
 fresh vim/vimrc --file
 
