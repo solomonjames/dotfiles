@@ -21,6 +21,7 @@ mkdir -p ~/.vim/bundle
 fresh VundleVim/Vundle.vim . --file=~/.vim/bundle/Vundle.vim/
 
 fresh vim/vimrc --file
+fresh vim/vimrc.config --file
 
 # Load all the vim bundles from my repo
 #for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
