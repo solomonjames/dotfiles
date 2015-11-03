@@ -10,14 +10,28 @@ call vundle#begin()
   " let Vundle manage Vundle, required
   Plugin 'VundleVim/Vundle.vim'
 
+  " Basic settings
+  Plugin 'tpope/vim-sensible'
+
   " Git integration
   Plugin 'tpope/vim-fugitive'
 
   " Navigation
   Plugin 'scrooloose/nerdtree'
 
+  " Syntax
+  Plugin 'scrooloose/syntastic'
+
+  " for respecting .editorconfig files in projects
+  Plugin 'editorconfig/editorconfig-vim'
+
 " [END] Plugins
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Load the main config
+if filereadable(expand("~/.vimrc.config"))
+    source ~/.vimrc.config
+endif
