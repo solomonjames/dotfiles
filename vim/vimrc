@@ -25,6 +25,9 @@ call vundle#begin()
   " for respecting .editorconfig files in projects
   Plugin 'editorconfig/editorconfig-vim'
 
+  " Colors
+  Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
 " [END] Plugins
 
 " All of your Plugins must be added before the following line
