@@ -19,8 +19,9 @@ call vundle#begin()
   " Navigation
   Plugin 'scrooloose/nerdtree'
 
-  " Syntax
+  " Coding stuff
   Plugin 'scrooloose/syntastic'
+  Plugin 'scrooloose/nerdcommenter'
 
   " for respecting .editorconfig files in projects
   Plugin 'editorconfig/editorconfig-vim'
