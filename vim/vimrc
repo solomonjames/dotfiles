@@ -27,7 +27,7 @@ call vundle#begin()
   Plugin 'editorconfig/editorconfig-vim'
 
   " Colors
-  Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+  Plugin 'dracula/dracula-theme', {'rtp': 'vim/'}
 
 " [END] Plugins
 
