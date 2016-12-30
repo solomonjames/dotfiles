@@ -37,6 +37,7 @@ fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
 # General: Vendors
 fresh shell/bin/hub --bin
 fresh shell/bin/fresh-setup --bin
+fresh shell/bin/install-composer --bin
 
 fresh shell/iterm2_shell_integration.bash --file=~/.iterm2_shell_integration.bash
 
