@@ -38,7 +38,9 @@ fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
 fresh shell/bin/hub --bin
 fresh shell/bin/fresh-setup --bin
 fresh shell/bin/install-composer --bin
+fresh shell/bin/docker-clean --bin
 
+fresh shell/iterm2 --file
 fresh shell/iterm2_shell_integration.bash --file=~/.iterm2_shell_integration.bash
 
 fresh icy/pacapt pacapt --bin

@@ -57,3 +57,5 @@ fi
 
 # Load a local profile
 [ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
