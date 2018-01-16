@@ -55,6 +55,11 @@ if [ -f "$HOME/lib/google-cloud-sdk/completion.bash.inc" ]; then
   source "$HOME/lib/google-cloud-sdk/completion.bash.inc"
 fi
 
+# Enable rust if installed
+if [ -f "$HOME/.cargo/bin" ]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 # Load a local profile
 [ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
 
