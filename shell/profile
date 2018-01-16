@@ -56,7 +56,7 @@ if [ -f "$HOME/lib/google-cloud-sdk/completion.bash.inc" ]; then
 fi
 
 # Enable rust if installed
-if [ -f "$HOME/.cargo/bin" ]; then
+if [ -r "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
