@@ -55,6 +55,11 @@ if [ -f "$HOME/lib/google-cloud-sdk/completion.bash.inc" ]; then
   source "$HOME/lib/google-cloud-sdk/completion.bash.inc"
 fi
 
+# The next line enables shell command completion for brew
+if [ -f "/usr/local/etc/bash_completion.d/brew" ]; then
+  source "/usr/local/etc/bash_completion.d/brew"
+fi
+
 # Enable rust if installed
 if [ -r "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
