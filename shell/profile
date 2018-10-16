@@ -65,6 +65,9 @@ if [ -r "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
+# Enable autojump if installed
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # Load a local profile
 [ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
 
