@@ -55,6 +55,9 @@ if [ -f "$HOME/lib/google-cloud-sdk/completion.bash.inc" ]; then
   source "$HOME/lib/google-cloud-sdk/completion.bash.inc"
 fi
 
+# Disable brew analytics reporting
+export HOMEBREW_NO_ANALYTICS=1
+
 # The next line enables shell command completion for brew
 if [ -f "/usr/local/etc/bash_completion.d/brew" ]; then
   source "/usr/local/etc/bash_completion.d/brew"
