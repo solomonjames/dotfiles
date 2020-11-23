@@ -40,8 +40,8 @@ fresh shell/bin/fresh-setup --bin
 fresh shell/bin/install-composer --bin
 fresh shell/bin/docker-clean --bin
 
-fresh shell/iterm2 --file
-fresh shell/iterm2_shell_integration.bash --file=~/.iterm2_shell_integration.bash
+#fresh shell/iterm2 --file
+#fresh shell/iterm2_shell_integration.bash --file=~/.iterm2_shell_integration.bash
 
 fresh icy/pacapt pacapt --bin
 
@@ -56,7 +56,7 @@ fresh shell/\*
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
 fresh nojhan/liquidprompt liquidprompt
 
-fresh jasoncodes/dotfiles shell/aliases/git.sh
+#fresh jasoncodes/dotfiles shell/aliases/git.sh
 fresh jasoncodes/dotfiles config/ackrc --file
 fresh jasoncodes/dotfiles config/inputrc --file
 fresh defunkt/repl bin/repl --bin
