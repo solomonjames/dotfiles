@@ -1,14 +1,14 @@
 # Productivity tools
-brew cask install alfred
+#brew cask install alfred
 #cask install slate
 
 # Utilities
-brew cask install caffeine
-brew cask install flux
+#brew cask install caffeine
+#brew cask install flux
 
 # Virtualization
-brew cask install virtualbox
+#brew cask install virtualbox
 
 # Applications
-brew cask install google-chrome
-brew cask install iterm3
+#brew cask install google-chrome
+#brew cask install iterm3
