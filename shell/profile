@@ -63,6 +63,10 @@ if [ -f "/usr/local/etc/bash_completion.d/brew" ]; then
   source "/usr/local/etc/bash_completion.d/brew"
 fi
 
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Enable rust if installed
 if [ -r "$HOME/.cargo/bin" ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
