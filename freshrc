@@ -46,3 +46,5 @@ fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=completion
 fresh_after_build() {
     chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
 }
+
+fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
