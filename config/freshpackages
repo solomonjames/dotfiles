@@ -4,14 +4,3 @@ FRESH_SETUP_PKGS+=("tmux")
 FRESH_SETUP_PKGS+=("wget")
 FRESH_SETUP_PKGS+=("tig")
 FRESH_SETUP_PKGS+=("git-extras")
-
-osname=`uname`
-
-case "$osname" in
-    Linux)
-        ;;
-
-    Darwin)
-        FRESH_SETUP_PKGS+=("caskroom/cask/brew-cask")
-        ;;
-esac

@@ -12,8 +12,10 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-fresh freshshell/fresh contrib/source-build.sh --file=~/.bash_profile
-fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc
+fresh icy/pacapt pacapt --bin
+
+# Needed for using antigen in zshrc
+fresh zsh-users/antigen bin/antigen.zsh
 
 # Ensure this is present
 mkdir -p ~/.vim/bundle
@@ -23,27 +25,13 @@ fresh VundleVim/Vundle.vim . --file=~/.vim/bundle/Vundle.vim/
 fresh vim/vimrc --file
 fresh vim/vimrc.config --file
 
-# Load all the vim bundles from my repo
-#for vimBundle in $(ls "${HOME}/.dotfiles/vim/bundle"); do
-#    fresh vim/bundle/$vimBundle --file=~/.vim/bundle/$vimBundle/
-#done
-
-#fresh vim/colors --file=~/.vim/colors/
-#fresh vim/init --file=~/.vim/init/
-
 # Tmux: Vendors
 fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
 
 # General: Vendors
 fresh shell/bin/hub --bin
 fresh shell/bin/fresh-setup --bin
-fresh shell/bin/install-composer --bin
 fresh shell/bin/docker-clean --bin
-
-#fresh shell/iterm2 --file
-#fresh shell/iterm2_shell_integration.bash --file=~/.iterm2_shell_integration.bash
-
-fresh icy/pacapt pacapt --bin
 
 fresh config/\* --file
 
@@ -53,17 +41,8 @@ fresh shell/config/\*
 fresh shell/\*
 
 # Add fresh auto-completion
-fresh freshshell/fresh contrib/completion/fresh-completion.bash
-fresh nojhan/liquidprompt liquidprompt
-
-#fresh jasoncodes/dotfiles shell/aliases/git.sh
-fresh jasoncodes/dotfiles config/ackrc --file
-fresh jasoncodes/dotfiles config/inputrc --file
-fresh defunkt/repl bin/repl --bin
-fresh sivel/speedtest-cli speedtest.py --bin=~/bin/speedtest
+fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=completion/_fresh
 
 fresh_after_build() {
     chmod -R 755 ~/.tmux/plugins/tmux-resurrect/*
 }
-
-fresh freshshell/fresh contrib/source-build.sh --file=~/.bashrc

@@ -1,6 +1,6 @@
 [user]
     name  = James Solomon
-    email = solomonjames@spotify.com
+    email = solomonjames@gmail.com
 
 [alias]
     st = status
@@ -37,4 +37,4 @@
     default = tracking
 
 [web]
-    browser = google-chrome
+    browser = firefox

@@ -1,0 +1,57 @@
+EDITOR=vim
+TZ=America/New_York
+LANG=en_US.UTF-8
+# Darwinism
+CLICOLOR=1
+
+source ~/.dotfiles/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle brew
+antigen bundle composer
+antigen bundle nojhan/liquidprompt
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Tell Antigen that you're done.
+antigen apply
+
+# useful only for Mac OS Silicon M1, 
+# still working but useless for the other platforms
+docker() {
+ if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
+    /usr/local/bin/docker "$1" --platform linux/amd64 "${@:2}"
+  else
+     /usr/local/bin/docker "$@"
+  fi
+}
+
+export EDITOR TZ LANG CLICOLOR
+
+# Disable brew analytics reporting
+export HOMEBREW_NO_ANALYTICS=1
+
+# Load a local profile
+[ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
+
+# http://lpetr.org/blog/archives/preserve-bash-history
+# Maximum number of history lines in memory
+export HISTSIZE=50000
+
+# Maximum number of history lines on disk
+export HISTFILESIZE=50000
+
+# Ignore duplicate lines
+export HISTCONTROL=ignoredups:erasedups
+
+export HISTFILE="$HOME/.history"
+
+# When the shell exits, append to the history file
+#  instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file
+#  and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
