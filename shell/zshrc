@@ -4,7 +4,7 @@ LANG=en_US.UTF-8
 # Darwinism
 CLICOLOR=1
 
-source ~/.dotfiles/antigen.zsh
+source ~/bin/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -14,17 +14,21 @@ antigen bundle brew
 antigen bundle composer
 antigen bundle nojhan/liquidprompt
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle nvm
+
+antigen bundle agkozak/zsh-z
 
 # Tell Antigen that you're done.
 antigen apply
 
 # useful only for Mac OS Silicon M1, 
 # still working but useless for the other platforms
+DOCKER=$(which docker)
 docker() {
  if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
-    /usr/local/bin/docker "$1" --platform linux/amd64 "${@:2}"
+    $DOCKER "$1" --platform linux/amd64 "${@:2}"
   else
-     /usr/local/bin/docker "$@"
+    $DOCKER "$@"
   fi
 }
 
@@ -50,7 +54,13 @@ export HISTFILE="$HOME/.history"
 
 # When the shell exits, append to the history file
 #  instead of overwriting it
-shopt -s histappend
+setopt append_history
+
+# show completion menu on succesive tab press
+setopt auto_menu
+
+# ignore duplication command history list
+setopt hist_ignore_dups
 
 # After each command, append to the history file
 #  and reread it

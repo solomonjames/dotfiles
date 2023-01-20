@@ -15,7 +15,7 @@ fresh freshshell/fresh bin/fresh --bin
 fresh icy/pacapt pacapt --bin
 
 # Needed for using antigen in zshrc
-fresh zsh-users/antigen bin/antigen.zsh
+fresh zsh-users/antigen bin/antigen.zsh --bin
 
 # Ensure this is present
 mkdir -p ~/.vim/bundle
