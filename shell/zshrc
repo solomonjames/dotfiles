@@ -23,14 +23,14 @@ antigen apply
 
 # useful only for Mac OS Silicon M1, 
 # still working but useless for the other platforms
-DOCKER=$(which docker)
-docker() {
- if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
-    $DOCKER "$1" --platform linux/amd64 "${@:2}"
-  else
-    $DOCKER "$@"
-  fi
-}
+#DOCKER=$(which docker)
+#docker() {
+# if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
+#    $DOCKER "$1" --platform linux/amd64 "${@:2}"
+#  else
+#    $DOCKER "$@"
+#  fi
+#}
 
 export EDITOR TZ LANG CLICOLOR
 
@@ -65,3 +65,5 @@ setopt hist_ignore_dups
 # After each command, append to the history file
 #  and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
