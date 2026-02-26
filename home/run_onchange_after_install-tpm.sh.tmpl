@@ -17,6 +17,7 @@ else
 fi
 
 echo "Installing TPM plugins..."
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins"
 "$TPM_DIR/bin/install_plugins"
 
 echo "TPM plugins installed."
