@@ -18,6 +18,7 @@ else
 fi
 
 echo "Installing TPM plugins..."
+tmux start-server \; set-environment -g TMUX_PLUGIN_MANAGER_PATH "$TMUX_PLUGIN_MANAGER_PATH"
 "$TPM_DIR/bin/install_plugins"
 
 echo "TPM plugins installed."
