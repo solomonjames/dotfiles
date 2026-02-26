@@ -6,12 +6,14 @@ set -euo pipefail
 
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 
-if [ ! -d "$VUNDLE_DIR" ]; then
-    echo "Cloning Vundle..."
-    git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
-else
+if [ -d "$VUNDLE_DIR/.git" ]; then
     echo "Updating Vundle..."
     git -C "$VUNDLE_DIR" pull --quiet
+else
+    rm -rf "$VUNDLE_DIR"
+    echo "Cloning Vundle..."
+    mkdir -p "$HOME/.vim/bundle"
+    git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
 fi
 
 echo "Installing Vim plugins..."

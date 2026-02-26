@@ -6,13 +6,14 @@ set -euo pipefail
 
 RESURRECT_DIR="$HOME/.tmux/plugins/tmux-resurrect"
 
-if [ ! -d "$RESURRECT_DIR" ]; then
+if [ -d "$RESURRECT_DIR/.git" ]; then
+    echo "Updating tmux-resurrect..."
+    git -C "$RESURRECT_DIR" pull --quiet
+else
+    rm -rf "$RESURRECT_DIR"
     echo "Cloning tmux-resurrect..."
     mkdir -p "$HOME/.tmux/plugins"
     git clone https://github.com/tmux-plugins/tmux-resurrect.git "$RESURRECT_DIR"
-else
-    echo "Updating tmux-resurrect..."
-    git -C "$RESURRECT_DIR" pull --quiet
 fi
 
 chmod -R 755 "$RESURRECT_DIR"/*
