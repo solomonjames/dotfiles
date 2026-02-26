@@ -8,24 +8,8 @@ CLICOLOR=1
 # Add local bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-source ~/.local/bin/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-{{ if eq .chezmoi.os "darwin" -}}
-antigen bundle brew
-{{ end -}}
-antigen bundle composer
-antigen bundle nojhan/liquidprompt
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle nvm
-
-antigen bundle agkozak/zsh-z
-
-# Tell Antigen that you're done.
-antigen apply
+source ~/.antidote/antidote.zsh
+antidote load ~/.config/zsh/.zsh_plugins.txt
 
 {{ if eq .chezmoi.os "darwin" -}}
 export EDITOR TZ LANG CLICOLOR

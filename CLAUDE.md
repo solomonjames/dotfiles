@@ -53,7 +53,7 @@ The repo uses `.chezmoiroot` to set `home/` as the chezmoi source directory, kee
 - `home/dot_vimrc`, `home/dot_vimrc.config` — Vim config (Vundle-managed plugins)
 
 **Plugin managers in use:**
-- Antigen for zsh (oh-my-zsh bundles, liquidprompt, syntax highlighting, zsh-z)
+- Antidote for zsh (oh-my-zsh bundles, liquidprompt, syntax highlighting, zsh-z)
 - Vundle for vim (fugitive, nerdtree, syntastic, dracula theme)
 - tmux-resurrect for tmux session persistence
 

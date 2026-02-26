@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# zsh_plugins.txt hash: {{ include "private_dot_config/zsh/dot_zsh_plugins.txt.tmpl" | sha256sum }}
+# dot_zshrc.tmpl hash: {{ include "dot_zshrc.tmpl" | sha256sum }}
+
+set -euo pipefail
+
+ANTIDOTE_DIR="$HOME/.antidote"
+
+if [ -d "$ANTIDOTE_DIR/.git" ]; then
+    echo "Updating antidote..."
+    git -C "$ANTIDOTE_DIR" pull --quiet
+else
+    rm -rf "$ANTIDOTE_DIR"
+    echo "Cloning antidote..."
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_DIR"
+fi
+
+echo "antidote installed to ~/.antidote"
