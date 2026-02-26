@@ -8,6 +8,8 @@ CLICOLOR=1
 # Add local bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+autoload -Uz compinit && compinit
+
 source ~/.antidote/antidote.zsh
 antidote load ~/.config/zsh/.zsh_plugins.txt
 
