@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# tmux.conf hash: {{ include "dot_tmux.conf" | sha256sum }}
+
+set -euo pipefail
+
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+
+if [ -d "$TPM_DIR/.git" ]; then
+    echo "Updating TPM..."
+    git -C "$TPM_DIR" pull --quiet
+else
+    rm -rf "$TPM_DIR"
+    echo "Cloning TPM..."
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm.git "$TPM_DIR"
+fi
+
+echo "TPM installed. Open tmux and press 'prefix + I' to install plugins."

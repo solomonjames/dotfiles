@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-PACKAGES=(vim tmux wget tig git-extras)
+PACKAGES=(neovim tmux wget tig git-extras)
 
 {{ if eq .chezmoi.os "darwin" -}}
 if ! command -v brew &>/dev/null; then
