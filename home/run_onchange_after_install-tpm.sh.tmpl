@@ -16,4 +16,7 @@ else
     git clone https://github.com/tmux-plugins/tpm.git "$TPM_DIR"
 fi
 
-echo "TPM installed. Open tmux and press 'prefix + I' to install plugins."
+echo "Installing TPM plugins..."
+"$TPM_DIR/bin/install_plugins"
+
+echo "TPM plugins installed."
