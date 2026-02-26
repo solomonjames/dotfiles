@@ -7,6 +7,6 @@ set -euo pipefail
 mkdir -p "$HOME/.local/bin"
 
 echo "Downloading antigen.zsh..."
-curl -fsSL git.io/antigen -o "$HOME/.local/bin/antigen.zsh"
+curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh -o "$HOME/.local/bin/antigen.zsh"
 
 echo "antigen.zsh installed to ~/.local/bin/antigen.zsh"
