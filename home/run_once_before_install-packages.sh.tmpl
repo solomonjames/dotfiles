@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -euo pipefail
+
+PACKAGES=(vim tmux wget tig git-extras)
+
+{{ if eq .chezmoi.os "darwin" -}}
+if ! command -v brew &>/dev/null; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+echo "Installing packages via Homebrew..."
+for pkg in "${PACKAGES[@]}"; do
+    brew list "$pkg" &>/dev/null || brew install "$pkg"
+done
+{{ else -}}
+echo "Installing packages..."
+if command -v apt-get &>/dev/null; then
+    sudo apt-get update -qq
+    sudo apt-get install -y -qq "${PACKAGES[@]}"
+elif command -v yum &>/dev/null; then
+    sudo yum install -y "${PACKAGES[@]}"
+else
+    echo "No supported package manager found (apt-get or yum)."
+    exit 1
+fi
+{{ end -}}

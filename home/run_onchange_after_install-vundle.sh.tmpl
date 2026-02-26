@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# vimrc hash: {{ include "dot_vimrc" | sha256sum }}
+
+set -euo pipefail
+
+VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
+
+if [ ! -d "$VUNDLE_DIR" ]; then
+    echo "Cloning Vundle..."
+    git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
+else
+    echo "Updating Vundle..."
+    git -C "$VUNDLE_DIR" pull --quiet
+fi
+
+echo "Installing Vim plugins..."
+vim +PluginInstall +qall

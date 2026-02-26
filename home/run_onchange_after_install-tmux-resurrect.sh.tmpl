@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# tmux.conf hash: {{ include "dot_tmux.conf" | sha256sum }}
+
+set -euo pipefail
+
+RESURRECT_DIR="$HOME/.tmux/plugins/tmux-resurrect"
+
+if [ ! -d "$RESURRECT_DIR" ]; then
+    echo "Cloning tmux-resurrect..."
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tmux-resurrect.git "$RESURRECT_DIR"
+else
+    echo "Updating tmux-resurrect..."
+    git -C "$RESURRECT_DIR" pull --quiet
+fi
+
+chmod -R 755 "$RESURRECT_DIR"/*
+
+echo "tmux-resurrect installed."

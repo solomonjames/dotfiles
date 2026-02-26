@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# antigen.zsh hash: {{ include "dot_zshrc.tmpl" | sha256sum }}
+
+set -euo pipefail
+
+mkdir -p "$HOME/.local/bin"
+
+echo "Downloading antigen.zsh..."
+curl -fsSL git.io/antigen -o "$HOME/.local/bin/antigen.zsh"
+
+echo "antigen.zsh installed to ~/.local/bin/antigen.zsh"
