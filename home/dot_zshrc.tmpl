@@ -1,16 +1,22 @@
 EDITOR=vim
 TZ=America/New_York
 LANG=en_US.UTF-8
-# Darwinism
+{{ if eq .chezmoi.os "darwin" -}}
 CLICOLOR=1
+{{ end -}}
 
-source ~/bin/antigen.zsh
+# Add local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+source ~/.local/bin/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
+{{ if eq .chezmoi.os "darwin" -}}
 antigen bundle brew
+{{ end -}}
 antigen bundle composer
 antigen bundle nojhan/liquidprompt
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -21,24 +27,21 @@ antigen bundle agkozak/zsh-z
 # Tell Antigen that you're done.
 antigen apply
 
-# useful only for Mac OS Silicon M1, 
-# still working but useless for the other platforms
-#DOCKER=$(which docker)
-#docker() {
-# if [[ `uname -m` == "arm64" ]] && [[ "$1" == "run" || "$1" == "build" ]]; then
-#    $DOCKER "$1" --platform linux/amd64 "${@:2}"
-#  else
-#    $DOCKER "$@"
-#  fi
-#}
-
+{{ if eq .chezmoi.os "darwin" -}}
 export EDITOR TZ LANG CLICOLOR
+{{ else -}}
+export EDITOR TZ LANG
+{{ end -}}
 
 # Disable brew analytics reporting
 export HOMEBREW_NO_ANALYTICS=1
 
-# Load a local profile
-[ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# Source shell config, aliases, and functions
+for f in ~/.config/shell/config/*.sh; do [ -r "$f" ] && . "$f"; done
+for f in ~/.config/shell/aliases/*.sh; do [ -r "$f" ] && . "$f"; done
+for f in ~/.config/shell/functions/*.sh; do [ -r "$f" ] && . "$f"; done
 
 # http://lpetr.org/blog/archives/preserve-bash-history
 # Maximum number of history lines in memory
@@ -66,4 +69,5 @@ setopt hist_ignore_dups
 #  and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+# Load a local profile
+[ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"

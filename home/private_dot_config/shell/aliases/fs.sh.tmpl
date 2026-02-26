@@ -1,6 +1,8 @@
 # Transverse helpers
 alias ..="cd .."
 
-[ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
+{{ if eq .chezmoi.os "linux" -}}
+alias ls='ls --color'
+{{ end -}}
 alias ll='ls -lh'
 alias la='ls -lha'

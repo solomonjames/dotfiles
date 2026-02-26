@@ -1,6 +1,0 @@
-FRESH_SETUP_PKGS=()
-FRESH_SETUP_PKGS+=("vim")
-FRESH_SETUP_PKGS+=("tmux")
-FRESH_SETUP_PKGS+=("wget")
-FRESH_SETUP_PKGS+=("tig")
-FRESH_SETUP_PKGS+=("git-extras")
