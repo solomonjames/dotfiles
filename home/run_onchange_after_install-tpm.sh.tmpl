@@ -4,7 +4,8 @@
 
 set -euo pipefail
 
-TPM_DIR="$HOME/.tmux/plugins/tpm"
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux/plugins"
+TPM_DIR="$TMUX_PLUGIN_MANAGER_PATH/tpm"
 
 if [ -d "$TPM_DIR/.git" ]; then
     echo "Updating TPM..."
