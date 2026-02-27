@@ -1,0 +1,2 @@
+# Shift+Enter support for CLI tools (e.g. Claude Code) inside tmux
+keybind = shift+enter=text:\x1b\r
