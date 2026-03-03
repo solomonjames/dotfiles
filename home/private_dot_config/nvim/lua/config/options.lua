@@ -8,3 +8,6 @@ vim.opt.relativenumber = true
 -- Whitespace visualization
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", tab = ">-", trail = "~", extends = ">", precedes = "<", nbsp = "·" }
+
+-- Disable format-on-save globally
+vim.g.autoformat = false
