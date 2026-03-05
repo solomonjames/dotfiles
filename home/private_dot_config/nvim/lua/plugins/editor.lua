@@ -9,12 +9,13 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
+    "folke/snacks.nvim",
     opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_dotfiles = false,
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+          },
         },
       },
     },
