@@ -1,4 +1,5 @@
 return {
+  { "phpactor/phpactor", enabled = false },
   {
     "christoomey/vim-tmux-navigator",
     keys = {
