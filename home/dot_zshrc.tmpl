@@ -57,3 +57,6 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 # Load a local profile
 [ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
