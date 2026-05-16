@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-PACKAGES=(neovim tmux wget tig git-extras lazygit fzf)
+PACKAGES=(neovim tmux wget tig git-extras lazygit fzf ripgrep fd bat eza git-delta zoxide)
 
 {{ if eq .chezmoi.os "darwin" -}}
 if ! command -v brew &>/dev/null; then
