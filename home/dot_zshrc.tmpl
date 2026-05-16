@@ -55,6 +55,9 @@ setopt hist_ignore_dups
 #  and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+# fzf key bindings and completion (Ctrl-R, Ctrl-T, **<Tab>)
+command -v fzf &>/dev/null && source <(fzf --zsh)
+
 # Load a local profile
 [ -r "$HOME/.localprofile" ] && . "$HOME/.localprofile"
 
