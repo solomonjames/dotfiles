@@ -29,31 +29,20 @@ for f in ~/.config/shell/config/*.sh; do [ -r "$f" ] && . "$f"; done
 for f in ~/.config/shell/aliases/*.sh; do [ -r "$f" ] && . "$f"; done
 for f in ~/.config/shell/functions/*.sh; do [ -r "$f" ] && . "$f"; done
 
-# http://lpetr.org/blog/archives/preserve-bash-history
-# Maximum number of history lines in memory
-export HISTSIZE=50000
-
-# Maximum number of history lines on disk
-export HISTFILESIZE=50000
-
-# Ignore duplicate lines
-export HISTCONTROL=ignoredups:erasedups
-
 export HISTFILE="$HOME/.history"
+export HISTSIZE=50000   # lines kept in memory
+export SAVEHIST=50000   # lines persisted to $HISTFILE
 
-# When the shell exits, append to the history file
-#  instead of overwriting it
-setopt append_history
+# History behavior (zsh-native; replaces bash PROMPT_COMMAND/HISTCONTROL)
+setopt SHARE_HISTORY          # sync history live across running shells
+setopt INC_APPEND_HISTORY     # write each command as it runs, not at exit
+setopt HIST_IGNORE_DUPS       # skip a command identical to the one before it
+setopt HIST_IGNORE_ALL_DUPS   # drop older duplicates of a re-run command
+setopt HIST_IGNORE_SPACE      # skip commands prefixed with a space
+setopt HIST_FIND_NO_DUPS      # skip duplicates when searching history
 
-# show completion menu on succesive tab press
+# show completion menu on successive tab press
 setopt auto_menu
-
-# ignore duplication command history list
-setopt hist_ignore_dups
-
-# After each command, append to the history file
-#  and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # fzf uses fd for traversal (fast, respects .gitignore, includes dotfiles)
 if command -v fd &>/dev/null; then

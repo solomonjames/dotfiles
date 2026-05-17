@@ -17,3 +17,15 @@ function symlink() {
     # Create that symlink!
     ln -s $1 $2
 }
+
+# yazi: open the file manager and cd to the directory you quit in
+if command -v yazi >/dev/null 2>&1; then
+    function y() {
+        local tmp cwd
+        tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d '' cwd <"$tmp" || true
+        [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+        rm -f -- "$tmp"
+    }
+fi

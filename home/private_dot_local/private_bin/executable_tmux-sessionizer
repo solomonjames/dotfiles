@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Pick a project directory (zoxide history + ~/src tree) and open or
+# switch to a tmux session named after it. Bound to <prefix> f in tmux.conf.
+
+set -euo pipefail
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(
+        {
+            zoxide query -l 2>/dev/null || true
+            fd . "$HOME/src" --type d --max-depth 3 2>/dev/null || true
+        } | awk 'NF && !seen[$0]++' | fzf --tmux 80% --reverse
+    )
+fi
+
+[[ -z ${selected:-} ]] && exit 0
+
+selected_name=$(basename "$selected" | tr '. ' '__')
+
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+if [[ -z ${TMUX:-} ]]; then
+    tmux attach-session -t "$selected_name"
+else
+    tmux switch-client -t "$selected_name"
+fi
