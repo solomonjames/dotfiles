@@ -19,6 +19,10 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -Uz compinit && compinit
 
 source ~/.antidote/antidote.zsh
+# A zero-byte static bundle (e.g. a regen interrupted mid-write) looks "newer"
+# than the plugin list, so antidote would source it and load no plugins.
+# Drop it so `antidote load` rebuilds from scratch.
+[ -s ~/.config/zsh/.zsh_plugins.zsh ] || rm -f ~/.config/zsh/.zsh_plugins.zsh
 antidote load ~/.config/zsh/.zsh_plugins.txt
 
 {{ if eq .chezmoi.os "darwin" -}}
