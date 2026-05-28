@@ -5,6 +5,14 @@ LANG=en_US.UTF-8
 CLICOLOR=1
 {{ end -}}
 
+{{ if eq .chezmoi.os "darwin" -}}
+# Homebrew — put brew and its installed tools on PATH.
+# Must precede the `command -v fd/fzf/zoxide/bat` guards below, which rely on it.
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+{{ end -}}
+
 # Add local bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
